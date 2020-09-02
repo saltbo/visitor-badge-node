@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
   } else {
     key = page_id
   }
-  countapi.hit('visitor-badge', md5(key)).then((result) => {
+  countapi.hit('visitors', md5(key)).then((result) => {
     res.setHeader('Content-Type', 'image/svg+xml')
     res.send(renderBadge('visitors', result.value, color))
   })
